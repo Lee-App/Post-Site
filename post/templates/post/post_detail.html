@@ -1,0 +1,13 @@
+<h1>Title: {{ object.title }}</h1>
+<p>Author: {{ object.author }}</p>
+<p>Context: {{ object.context }}</p>
+<p>IP: {{ object.create_ip }}</p>
+<p>Date: {{ object.create_date|date }}</p>
+<h3>Comments</h3>
+<ul>
+    {% for comment in comment_list %}
+    <li>{{ comment.author }} : {{ comment.context }} ({{ comment.create_date|date }})</li>
+    {% empty %}
+    <li>No comment yet.</li>
+    {% endfor %}
+</ul>
