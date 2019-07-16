@@ -12,6 +12,9 @@ class Post(models.Model):
     update_ip = models.CharField(max_length=15)
     create_ip = models.CharField(max_length=15)
 
+    def __str__(self):
+        return "{title} ({author})".format(title=self.title, author=self.author)
+
 class Comment(models.Model):
     post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
 
@@ -23,3 +26,6 @@ class Comment(models.Model):
 
     update_ip = models.CharField(max_length=15)
     create_ip = models.CharField(max_length=15)
+    
+    def __str__(self):
+        return "{post_id} - {context} ({author})".format(post_id=self.post_id, context=self.context, author=self.author)
