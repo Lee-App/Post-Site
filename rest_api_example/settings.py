@@ -28,6 +28,8 @@ INSTALLED_APPS = [
 
     # post
     'post',
+    # custom user
+    'customuser',
 ]
 
 MIDDLEWARE = [
