@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
 from django.contrib.auth.models import User
 
-class ProfileView(DetailView):
-    model = User
-    pk_url_kwarg = 'username'
-    template_name = 'registration/profile.html'
+from django.views.generic import View
+
+class ProfileView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'registration/profile.html')
+        
+    def post(self, request, *args, **kwargs):
+        return self.get(request)
 
 from .forms import UserSignUpForm
 from django.views.generic import FormView

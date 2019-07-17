@@ -11,3 +11,10 @@
     <li>No comment yet.</li>
     {% endfor %}
 </ul>
+<p>Current Username : {{ user.username }}</p>
+{% ifequal object.author user %}
+<a href="{% url 'post_list' %}">수정</a>
+{% else %}
+<a href="{% url 'login' %}">로그인</a>
+{% endifequal %}
+<a href="{% url 'post_list' %}">목록</a>
