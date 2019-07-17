@@ -1,6 +1,10 @@
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
+<h1>Login</h1>
+{% if user.is_authenticated %}
+<p>You are already loged in.</p>
+{% else %}
+<form method="post">{% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
+    <p>You don't have account? <a href="{% url 'signup' %}">sign up</a></p>
 </form>
+{% endif %}
